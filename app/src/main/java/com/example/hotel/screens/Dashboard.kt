@@ -17,9 +17,7 @@ import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
-import androidx.compose.material3.CardColors
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.CardElevation
 import androidx.compose.material3.Divider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -38,11 +36,11 @@ import androidx.compose.ui.unit.sp
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
 import com.example.hotel.R
-import com.example.hotel.ViewModel
+import com.example.hotel.vm.ViewModel
 
 @OptIn(ExperimentalGlideComposeApi::class)
 @Composable
-fun Dashboard(vm:ViewModel) {
+fun Dashboard(vm: ViewModel) {
 vm.getAllGuests()
    Column(
        Modifier

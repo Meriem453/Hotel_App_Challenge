@@ -1,7 +1,11 @@
 package com.example.hotel.Retrofit
 
 import com.example.hotel.Retrofit.Request.Token
+import com.example.hotel.Retrofit.Request.addBookingReq
 import com.example.hotel.Retrofit.Request.addRoomReq
+import com.example.hotel.Retrofit.Request.addUserReq
+import com.example.hotel.Retrofit.Request.chBookingStatReq
+import com.example.hotel.Retrofit.Request.deleteUserReq
 import com.example.hotel.Retrofit.Response.Bookings.BookingsResItem
 import com.example.hotel.Retrofit.Response.Guests.GuestsResItem
 import com.example.hotel.Retrofit.Response.Rooms.RoomsResItem
@@ -29,9 +33,26 @@ suspend fun getAllGests(@Body token: Token):List<GuestsResItem>
 @POST("roomsApp/addRoom/")
 suspend fun addRoom(@Body addRoomReq: addRoomReq)
 
+@POST("roomsApp/addBooking/")
+suspend fun addBooking(@Body addBookingReq: addBookingReq)
 
+@POST("dashboardApp/nbrBookings/")
+suspend fun getNbrBookings(@Body token: Token):Int
 
-//@POST("roomsApp/addBooking/")
+@POST("dashboardApp/nbrDone/")
+suspend fun getNbrDone(@Body token: Token):Int
+
+ @POST("usersApp/addUser/")
+ suspend fun addUser(@Body addUserReq: addUserReq)
+
+ @POST("usersApp/deleteUser/")
+ suspend fun deleteUser(@Body deleteUserReq: deleteUserReq)
+
+ @POST("generalApp/loyal/")
+ suspend fun getLoyal(@Body token: Token):List<GuestsResItem>
+
+ @POST("bookingApp/changeStatus")
+ suspend fun changeBookingStatus(@Body chBookingStatReq: chBookingStatReq)
 
 
 }

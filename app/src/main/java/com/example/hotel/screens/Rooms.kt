@@ -42,15 +42,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import com.example.hotel.R
+import com.example.hotel.Retrofit.Request.addBookingReq
 
 
-import com.example.hotel.ViewModel
-import kotlin.random.Random
-import kotlin.random.nextInt
+import com.example.hotel.vm.ViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Rooms(vm:ViewModel) {
+fun Rooms(vm: ViewModel) {
     val context= LocalContext.current
     var showAdd by remember {
         mutableStateOf(false) 
@@ -171,7 +170,7 @@ Column {
                     Modifier
                         .fillMaxWidth()
                         .padding(10.dp), horizontalArrangement = Arrangement.SpaceEvenly){
-                    Button(onClick = {vm.addBooking(com.example.hotel.data.Booking(Random.nextInt().toString(), name,"Pending", start,end,room))
+                    Button(onClick = {vm.addBooking(addBookingReq(name,room,start,end,""))
                                      Toast.makeText(context,"Booking added successfully",Toast.LENGTH_SHORT).show()
                         showAdd=false
                                      }, colors = ButtonDefaults.buttonColors(containerColor = colorResource(

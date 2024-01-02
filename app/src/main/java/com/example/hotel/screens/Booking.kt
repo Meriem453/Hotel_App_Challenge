@@ -2,13 +2,11 @@ package com.example.hotel.screens
 
 import android.widget.Toast
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -42,10 +40,11 @@ import androidx.compose.ui.window.Dialog
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
 import com.example.hotel.R
-import com.example.hotel.ViewModel
+import com.example.hotel.Retrofit.Request.chBookingStatReq
+import com.example.hotel.vm.ViewModel
 @OptIn(ExperimentalGlideComposeApi::class)
 @Composable
-fun Booking(vm:ViewModel) {
+fun Booking(vm: ViewModel) {
     vm.getAllBookings()
     val context= LocalContext.current
     var showAct by remember {
@@ -131,7 +130,8 @@ if(showAct){
                     .fillMaxWidth()
                     .padding(10.dp), horizontalArrangement = Arrangement.SpaceEvenly){
                 Button(onClick = {
-                       if (Act) vm.acceptBooking(booking = booking) else vm.cancelBooking(booking)
+                       if (Act) vm.acceptBooking(chBookingStatReq("",booking.varid,"Done"))
+                       else vm.cancelBooking(chBookingStatReq("",booking.varid,"Canceled"))
                     Toast.makeText(context,"", Toast.LENGTH_SHORT).show()
                     showAct=false
                 }, colors = ButtonDefaults.buttonColors(containerColor = colorResource(

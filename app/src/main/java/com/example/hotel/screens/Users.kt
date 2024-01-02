@@ -1,6 +1,5 @@
 package com.example.hotel.screens
 
-import android.widget.Toast
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -22,7 +21,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
@@ -30,13 +28,14 @@ import androidx.compose.ui.unit.sp
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
 import com.example.hotel.R
-import com.example.hotel.ViewModel
+import com.example.hotel.Retrofit.Request.deleteUserReq
+import com.example.hotel.vm.ViewModel
 @OptIn(ExperimentalGlideComposeApi::class)
 @Composable
-fun Users(vm:ViewModel) {
+fun Users(vm: ViewModel) {
     Column(Modifier.fillMaxWidth().padding(top = 10.dp), horizontalAlignment = Alignment.CenterHorizontally) {
-        //vm.getAllUsers()
-       // Toast.makeText(LocalContext.current,vm.filteredUser.size,Toast.LENGTH_SHORT).show()
+        vm.getAllUsers()
+
         LazyColumn(
             Modifier
                 .padding(20.dp)
@@ -61,7 +60,7 @@ fun Users(vm:ViewModel) {
                     Text(text = user.status, fontSize = 16.sp, color = Color.Gray, modifier = Modifier.padding(start = 30.dp))
                     Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.CenterEnd){
                         Icon(painter = painterResource(id = R.drawable.cancel), contentDescription ="", tint = Color.Gray, modifier = Modifier.clickable {
-                            vm.deleteUser(user)
+                            vm.deleteUser(deleteUserReq("",user._id))
                         } )
                     }
 
