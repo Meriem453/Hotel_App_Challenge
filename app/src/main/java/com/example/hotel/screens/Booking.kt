@@ -77,7 +77,7 @@ fun Booking(vm: ViewModel) {
                                 .clip(CircleShape)
                                 .padding(start = 10.dp, top = 10.dp)
                                 ,  contentScale = ContentScale.Crop )}
-                        Text(text = "Meriem", fontSize = 16.sp, color = Color.Gray, modifier = Modifier.padding(10.dp))
+                        Text(text = booking.name, fontSize = 16.sp, color = Color.Gray, modifier = Modifier.padding(10.dp))
                     }
                     Text(text = "${booking.start_date}-->${booking.end_date}", fontSize = 14.sp, color = Color.Gray, modifier = Modifier.padding( 10.dp))
                 }

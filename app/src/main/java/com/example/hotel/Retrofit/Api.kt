@@ -11,6 +11,8 @@ import com.example.hotel.Retrofit.Response.Guests.GuestsResItem
 import com.example.hotel.Retrofit.Response.Rooms.RoomsResItem
 import com.example.hotel.Retrofit.Response.Users.Users
 import com.example.hotel.Retrofit.Response.Users.UsersItem
+import com.example.hotel.Retrofit.Response.nbrBooking
+import com.example.hotel.Retrofit.Response.nbrDone
 
 import retrofit2.Call
 import retrofit2.Response
@@ -37,10 +39,10 @@ suspend fun addRoom(@Body addRoomReq: addRoomReq)
 suspend fun addBooking(@Body addBookingReq: addBookingReq)
 
 @POST("dashboardApp/nbrBookings/")
-suspend fun getNbrBookings(@Body token: Token):Int
+suspend fun getNbrBookings(@Body token: Token):nbrBooking
 
 @POST("dashboardApp/nbrDone/")
-suspend fun getNbrDone(@Body token: Token):Int
+suspend fun getNbrDone(@Body token: Token):nbrDone
 
  @POST("usersApp/addUser/")
  suspend fun addUser(@Body addUserReq: addUserReq)

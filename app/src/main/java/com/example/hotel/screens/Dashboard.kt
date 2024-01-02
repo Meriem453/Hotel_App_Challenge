@@ -42,6 +42,7 @@ import com.example.hotel.vm.ViewModel
 @Composable
 fun Dashboard(vm: ViewModel) {
 vm.getAllGuests()
+
    Column(
        Modifier
            .fillMaxSize()

@@ -94,10 +94,10 @@ class ViewModel @Inject constructor(
         }
     }
 fun getAllBookingOperations():Int{
-    var nbr=24
+    var nbr by mutableStateOf(24)
     viewModelScope.launch {
         try {
-            nbr=retrofit.getNbrBookings(Token(token))
+            nbr=retrofit.getNbrBookings(Token(token)).nbr
         }catch (e:Exception){
             Toast.makeText(c,"Check your connection",Toast.LENGTH_SHORT).show()
         }
@@ -184,10 +184,10 @@ viewModelScope.launch {
 
 }
     fun getDoneBooking(): Int {
-        var nbr=10
+        var nbr by mutableStateOf(10)
         viewModelScope.launch {
             try {
-                nbr=retrofit.getNbrDone(Token(token))
+                nbr=retrofit.getNbrDone(Token(token)).nbr
             }catch (e:Exception){
                 Toast.makeText(c,"Check your connection",Toast.LENGTH_SHORT).show()
             }
