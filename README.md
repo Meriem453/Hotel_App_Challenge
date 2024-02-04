@@ -1,5 +1,5 @@
 <h2>Hotel</h2>
-My participation in the coding challenge orginized by <a href src="https://linktr.ee/nexus.estin">Nexus Security Club</a>
+My participation in the coding challenge orginized by <a href="https://perenual.com/docs/api"> Perenual</a>
 <h2>Some pics:</h2>
 <img src="https://github.com/Meriem453/Hotel_App_Challenge/assets/75329424/12dad46d-35a9-48c9-9232-c9720a2b8f11" height=400 width=200>
 <img src="https://github.com/Meriem453/Hotel_App_Challenge/assets/75329424/1b23cab6-55ce-4ceb-9fae-cf6e5125552a" height=400 width=200>
